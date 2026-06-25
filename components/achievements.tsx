@@ -247,11 +247,10 @@ export function Achievements() {
                 setIsAutoPlay(false)
                 setTimeout(() => setIsAutoPlay(true), 1000)
               }}
-              className={`rounded-full transition-all duration-300 ${
-                index === currentSlide
+              className={`rounded-full transition-all duration-300 ${index === currentSlide
                   ? 'bg-primary w-8 h-3'
                   : 'bg-white/40 w-3 h-3 hover:bg-white/60'
-              }`}
+                }`}
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               aria-label={`Go to achievement ${index + 1}`}

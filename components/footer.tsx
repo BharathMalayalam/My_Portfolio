@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code, Briefcase, Mail, ArrowUp } from 'lucide-react'
+import { Code, Briefcase, Mail, ArrowUp, Heart } from 'lucide-react'
 
 export function Footer() {
   const scrollToTop = () => {
@@ -16,51 +16,64 @@ export function Footer() {
     { icon: Mail, href: 'mailto:bharath@example.com', label: 'Email' },
   ]
 
+  const navLinks = [
+    { label: 'About', href: '#about' },
+    { label: 'Services', href: '#services' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Contact', href: '#contact' },
+  ]
+
   return (
-    <footer className="bg-background border-t border-border py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-card border-t border-border py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-3xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-3">
               BM
             </div>
-            <p className="text-foreground">
-              Building scalable solutions and elegant code.
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Building scalable solutions<br />and elegant code.
             </p>
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-            <h4 className="font-semibold mb-4 text-foreground">Quick Links</h4>
-            <ul className="space-y-2 text-muted-foreground text-sm">
-              <li>
-                <a href="#about" className="hover:text-foreground transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="hover:text-foreground transition-colors">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#skills" className="hover:text-foreground transition-colors">
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-foreground transition-colors">
-                  Contact
-                </a>
-              </li>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <h4 className="font-bold mb-5 text-foreground uppercase tracking-wider text-xs">Quick Links</h4>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
+              {navLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors duration-200 font-medium"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
           {/* Social Links */}
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-            <h4 className="font-semibold mb-4 text-foreground">Connect</h4>
-            <div className="flex gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <h4 className="font-bold mb-5 text-foreground uppercase tracking-wider text-xs">Connect</h4>
+            <div className="flex gap-3">
               {socialLinks.map((link) => {
                 const IconComponent = link.icon
                 return (
@@ -69,10 +82,10 @@ export function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-all duration-300 hover:scale-110"
+                    className="w-10 h-10 rounded-xl bg-primary/10 hover:bg-gradient-to-br hover:from-primary hover:to-accent flex items-center justify-center text-primary hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/30 border border-primary/15 hover:border-transparent"
                     aria-label={link.label}
                   >
-                    <IconComponent className="w-5 h-5" />
+                    <IconComponent className="w-4 h-4" />
                   </a>
                 )
               })}
@@ -81,22 +94,24 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-border mb-8" />
+        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
 
-        {/* Bottom */}
+        {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground text-center sm:text-left">
-            © {currentYear} Bharath Malayalam. All rights reserved.
+          <p className="text-sm text-muted-foreground flex items-center gap-1.5">
+            © {currentYear} Bharath Malayalam. Made with
+            <Heart className="w-3.5 h-3.5 text-primary fill-primary inline" />
+            All rights reserved.
           </p>
 
           <motion.button
             onClick={scrollToTop}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-primary transition-colors"
+            whileHover={{ scale: 1.08, y: -2 }}
+            whileTap={{ scale: 0.94 }}
+            className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white shadow-md hover:shadow-lg hover:shadow-primary/30 transition-shadow duration-300"
             aria-label="Scroll to top"
           >
-            <ArrowUp className="w-5 h-5" />
+            <ArrowUp className="w-4 h-4" />
           </motion.button>
         </div>
       </div>

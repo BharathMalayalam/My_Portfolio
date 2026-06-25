@@ -55,19 +55,30 @@ export function About() {
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="grid grid-cols-3 gap-4 sm:gap-6">
-            <div className="bg-card rounded-lg p-6 shadow-sm border border-border/50 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">5+</div>
-              <p className="text-muted-foreground text-sm">Projects Completed</p>
-            </div>
-            <div className="bg-card rounded-lg p-6 shadow-sm border border-border/50 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-accent mb-2">3</div>
-              <p className="text-muted-foreground text-sm">Years Learning</p>
-            </div>
-            <div className="bg-card rounded-lg p-6 shadow-sm border border-border/50 text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">100%</div>
-              <p className="text-muted-foreground text-sm">Dedication</p>
-            </div>
+          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="bg-card rounded-xl p-6 shadow-sm border border-border/50 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-md cursor-pointer"
+            >
+              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 tracking-tight">5+</div>
+              <p className="text-muted-foreground font-semibold text-xs sm:text-sm uppercase tracking-wider">Projects Completed</p>
+            </motion.div>
+            
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="bg-card rounded-xl p-6 shadow-sm border border-border/50 text-center transition-all duration-300 hover:border-accent/50 hover:shadow-md cursor-pointer"
+            >
+              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 tracking-tight">3</div>
+              <p className="text-muted-foreground font-semibold text-xs sm:text-sm uppercase tracking-wider">Years Learning</p>
+            </motion.div>
+            
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="bg-card rounded-xl p-6 shadow-sm border border-border/50 text-center transition-all duration-300 hover:border-primary/50 hover:shadow-md cursor-pointer"
+            >
+              <div className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 tracking-tight">100%</div>
+              <p className="text-muted-foreground font-semibold text-xs sm:text-sm uppercase tracking-wider">Dedication</p>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
