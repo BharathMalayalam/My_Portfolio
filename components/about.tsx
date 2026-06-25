@@ -28,8 +28,8 @@ export function About() {
 
   const interests = [
     { icon: Cloud,       title: 'Cloud & DevOps',      desc: 'Linux, AWS, Docker & CI/CD pipelines', color: 'from-blue-500 to-cyan-400'     },
-    { icon: Code2,       title: 'Full-Stack Dev',       desc: 'React, Node.js, Next.js & REST APIs',        color: 'from-primary to-accent'        },
-    { icon: Server,      title: 'Backend Systems',      desc: 'Databases, microservices & scalable APIs',   color: 'from-violet-500 to-purple-400' },
+    { icon: Code2,       title: 'Full-Stack Dev',       desc: 'React,Node.js,Express.js,MongoDB,SQL',        color: 'from-primary to-accent'        },
+    { icon: Server,      title: 'Backend Systems',      desc: 'Databases, scalable APIs',   color: 'from-violet-500 to-purple-400' },
     { icon: Lightbulb,   title: 'Problem Solving',      desc: 'DSA, algorithms & system design thinking',  color: 'from-amber-500 to-orange-400'  },
     { icon: Globe,       title: 'Open Source',          desc: 'Contributing & collaborating globally',      color: 'from-emerald-500 to-teal-400'  },
     { icon: Coffee,      title: 'Continuous Learning',  desc: "Always exploring what's next in tech",       color: 'from-rose-500 to-pink-400'     },

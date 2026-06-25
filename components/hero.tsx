@@ -118,9 +118,7 @@ export function Hero() {
               variants={itemVariants}
               className="text-base sm:text-lg text-muted-foreground mb-10 leading-relaxed max-w-xl"
             >
-              I build scalable applications and robust cloud solutions. Passionate
-              about elegant code, optimized infrastructure, and solving complex
-              problems with precision.
+              Motivated Information Technology student with hands-on experience in cloud computing and full-stack development. Skilled in building scalable applications using AWS (EC2, S3, IAM) and the MERN stack. Strong interest in DevOps, cloud engineering, and software development, with practical experience in real-world projects, problem-solving, and collaborative team environments.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -155,7 +153,7 @@ export function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 bg-primary rounded-full" />
-                Based in Karur,Tamil Nadu, India
+                Located in Karur, Tamil Nadu, India
               </div>
             </motion.div>
           </motion.div>
