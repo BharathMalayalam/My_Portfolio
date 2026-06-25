@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Download, Code, Cloud, Zap, Database } from 'lucide-react'
+import { ArrowRight, Download, Code, Cloud, Zap, Database, Wrench } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+
 
 export function Hero() {
   const containerVariants = {
@@ -30,10 +31,11 @@ export function Hero() {
   }
 
   const badges = [
-    { icon: Code,     label: 'React & Next.js',   sub: 'Modern Frontend',      pos: 'top-4 -left-12',  delay: 0.8 },
-    { icon: Cloud,    label: 'DevOps & Cloud',     sub: 'AWS · Docker · K8s',   pos: 'bottom-20 -left-16', delay: 1.0 },
-    { icon: Database, label: 'Backend',            sub: 'Node.js · MongoDB',    pos: 'top-10 -right-12', delay: 1.1 },
-    { icon: Zap,      label: 'Full Stack',         sub: 'End-to-end solutions', pos: 'bottom-8 -right-10', delay: 1.2 },
+    { icon: Code, label: 'React & Next.js', sub: 'Modern Frontend', pos: 'top-4 -left-12', delay: 0.8 },
+    { icon: Cloud, label: 'DevOps & Cloud', sub: 'AWS · Docker · CI/CD', pos: 'bottom-20 -left-16', delay: 1.0 },
+    { icon: Database, label: 'Backend', sub: 'Node.js · MongoDB', pos: 'top-5 -right-12', delay: 1.1 },
+    { icon: Zap, label: 'Full Stack', sub: 'End-to-end solutions', pos: 'bottom-1 -right-0', delay: 1.2 },
+    { icon: Wrench, label: 'Dev Tools', sub: 'Git · Linux · REST', pos: 'bottom-40 -right-30  ', delay: 1.5 },
   ]
 
   return (
@@ -153,7 +155,7 @@ export function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 bg-primary rounded-full" />
-                Based in Kerala, India
+                Based in Karur,Tamil Nadu, India
               </div>
             </motion.div>
           </motion.div>
