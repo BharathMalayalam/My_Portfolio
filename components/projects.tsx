@@ -8,7 +8,7 @@ import { ExternalLink, Code2, Layers, Tag } from 'lucide-react'
 
 export function Projects() {
   const { ref, inView } = useInView({ threshold: 0.06, triggerOnce: true })
-  const [activeFilter, setActiveFilter] = useState('All')
+
 
   const fadeUp = (delay = 0) => ({
     hidden:  { opacity: 0, y: 32 },
@@ -59,59 +59,34 @@ export function Projects() {
       status:      'In Progress',
     },
   ]
-
-  const filters = ['All', 'Typescript', 'DevOps', 'Full stack']
-  const filtered = activeFilter === 'All' ? projects : projects.filter((p) => p.category === activeFilter)
-  const featured = filtered.find((p) => p.featured) || filtered[0]
-  const rest = filtered.filter((p) => p.id !== featured?.id)
+const featured = projects.find((p) => p.featured) || projects[0]
+const rest = projects.filter((p) => p.id !== featured?.id)
 
   return (
-    <section id="projects" ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
+    <section id="projects" ref={ref} className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* ── Header ── */}
         <motion.div
           variants={fadeUp(0)} initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="text-center mb-14"
+          className="text-center mb-10 sm:mb-14"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/12 text-primary text-sm font-semibold border border-primary/25 mb-5">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/12 text-primary text-sm font-semibold border border-primary/25 mb-4 sm:mb-5">
             My Work
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground mb-5">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground mb-4 sm:mb-5">
             Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-4 sm:mb-6" />
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl sm:max-w-2xl mx-auto">
             A selection of real-world projects spanning full-stack apps, cloud infra, and DevOps pipelines
           </p>
-        </motion.div>
-
-        {/* ── Filter pills ── */}
-        <motion.div
-          variants={fadeUp(0.1)} initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          className="flex justify-center gap-3 mb-14"
-        >
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActiveFilter(f)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-250 ${
-                activeFilter === f
-                  ? 'bg-gradient-to-r from-primary to-accent text-white border-transparent shadow-lg shadow-primary/30'
-                  : 'bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-primary'
-              }`}
-            >
-              {f}
-            </button>
-          ))}
         </motion.div>
 
         {/* ── Project Grid ── */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeFilter}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}

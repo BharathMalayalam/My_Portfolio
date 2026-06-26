@@ -103,16 +103,6 @@ export function Footer() {
             <Heart className="w-3.5 h-3.5 text-primary fill-primary inline" />
             All rights reserved.
           </p>
-
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.08, y: -2 }}
-            whileTap={{ scale: 0.94 }}
-            className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white shadow-md hover:shadow-lg hover:shadow-primary/30 transition-shadow duration-300"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </motion.button>
         </div>
       </div>
     </footer>

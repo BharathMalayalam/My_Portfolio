@@ -6,6 +6,7 @@ import Image from 'next/image'
 import {
   Code2, Cloud, GraduationCap, Rocket, Heart,
   MapPin, Coffee, Lightbulb, Server, Globe,
+  ExternalLink, Terminal,
 } from 'lucide-react'
 
 export function About() {
@@ -91,7 +92,7 @@ export function About() {
                 </div>
 
                 {/* Availability badge */}
-                <div className="px-6 py-4 bg-card flex items-center justify-between border-t border-border/50">
+                <div className="px-6 py-3 bg-card flex items-center justify-between border-t border-border/50">
                   <div className="flex items-center gap-2.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_6px_2px_rgba(16,185,129,0.5)] animate-pulse" />
                     <span className="text-sm font-semibold text-foreground">Open to opportunities</span>
@@ -99,6 +100,30 @@ export function About() {
                   <span className="text-xs text-muted-foreground bg-primary/8 px-3 py-1 rounded-full border border-primary/15">
                     Full-time / Intern
                   </span>
+                </div>                {/* Coding profile links */}
+                <div className="px-6 py-3 bg-card border-t border-border/50">
+                  <div className="flex gap-2.5">
+                    <a
+                      href="https://leetcode.com/u/bharathmalayalam/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-50 border border-amber-200/70 hover:bg-amber-500 hover:border-amber-500 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/25 hover:-translate-y-0.5"
+                    >
+                      <Terminal className="w-4 h-4 text-amber-600 group-hover:text-white transition-colors" />
+                      <span className="text-xs font-bold text-amber-700 group-hover:text-white transition-colors">LeetCode</span>
+                      <ExternalLink className="w-3 h-3 text-amber-400 group-hover:text-white/70 transition-colors" />
+                    </a>
+                    <a
+                      href="https://github.com/BharathMalayalam"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gray-50 border border-gray-200/70 hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-gray-800/25 hover:-translate-y-0.5"
+                    >
+                      <Code2 className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
+                      <span className="text-xs font-bold text-gray-700 group-hover:text-white transition-colors">GitHub</span>
+                      <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-white/70 transition-colors" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

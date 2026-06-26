@@ -133,7 +133,7 @@ export function Hero() {
                 </button>
               </Link>
               <a
-                href="/resume.pdf"
+                href="/Bharath_Malayalam_Resume.pdf"
                 download
                 className="px-8 py-3.5 border-2 border-primary/50 text-primary font-bold rounded-xl hover:bg-primary/10 hover:border-primary transition-all duration-300 flex items-center gap-2"
               >
