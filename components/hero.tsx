@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Download, Code, Cloud, Zap, Database, Wrench } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-
+import { SITE } from '@/lib/data/site'
 
 export function Hero() {
   const containerVariants = {
@@ -17,7 +17,7 @@ export function Hero() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: 'easeOut' } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: 'easeOut' as const } },
   }
 
   const photoVariants = {
@@ -26,7 +26,7 @@ export function Hero() {
       opacity: 1,
       scale: 1,
       x: 0,
-      transition: { duration: 0.9, ease: 'easeOut', delay: 0.3 },
+      transition: { duration: 0.9, ease: 'easeOut' as const, delay: 0.3 },
     },
   }
 
@@ -35,7 +35,7 @@ export function Hero() {
     { icon: Cloud, label: 'DevOps & Cloud', sub: 'AWS · Docker · CI/CD', pos: 'bottom-20 -left-16', delay: 1.0 },
     { icon: Database, label: 'Backend', sub: 'Node.js · MongoDB', pos: 'top-5 -right-12', delay: 1.1 },
     { icon: Zap, label: 'Full Stack', sub: 'End-to-end solutions', pos: 'bottom-1 -right-0', delay: 1.2 },
-    { icon: Wrench, label: 'Dev Tools', sub: 'Git · Linux · REST', pos: 'bottom-40 -right-30  ', delay: 1.5 },
+    { icon: Wrench, label: 'Dev Tools', sub: 'Git · Linux · REST', pos: 'bottom-40 -right-30', delay: 1.5 },
   ]
 
   return (
@@ -133,7 +133,7 @@ export function Hero() {
                 </button>
               </Link>
               <a
-                href="/Bharath_Malayalam_Resume.pdf"
+                href={SITE.resumePath}
                 download
                 className="px-8 py-3.5 border-2 border-primary/50 text-primary font-bold rounded-xl hover:bg-primary/10 hover:border-primary transition-all duration-300 flex items-center gap-2"
               >
@@ -153,7 +153,7 @@ export function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 bg-primary rounded-full" />
-                Located in Karur, Tamil Nadu, India
+                Located in {SITE.location}
               </div>
             </motion.div>
           </motion.div>
@@ -209,11 +209,17 @@ export function Hero() {
                   initial={{ opacity: 0, scale: 0.6 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay, duration: 0.5, ease: 'backOut' }}
-                  whileHover={{ scale: 1.08, y: -4 }}
-                  style={{
-                    animation: `float-${delay > 1 ? 'b' : 'a'} ${3.5 + delay}s ease-in-out infinite alternate`,
-                  }}
                 >
+                  <motion.div
+                    animate={{ y: [0, delay > 1 ? 10 : -12, 0] }}
+                    transition={{
+                      duration: 3.5 + delay,
+                      repeat: Infinity,
+                      repeatType: 'reverse',
+                      ease: 'easeInOut',
+                    }}
+                    whileHover={{ scale: 1.08, y: -4 }}
+                  >
                   <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg px-3.5 py-2.5 border border-primary/15 flex items-center gap-2.5 min-w-max">
                     <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
                       <Icon className="w-4 h-4 text-white" />
@@ -223,6 +229,7 @@ export function Hero() {
                       <p className="text-[10px] text-muted-foreground leading-none">{sub}</p>
                     </div>
                   </div>
+                  </motion.div>
                 </motion.div>
               ))}
 
@@ -236,17 +243,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* CSS keyframes for gentle float animation */}
-      <style jsx>{`
-        @keyframes float-a {
-          from { transform: translateY(0px); }
-          to   { transform: translateY(-12px); }
-        }
-        @keyframes float-b {
-          from { transform: translateY(0px); }
-          to   { transform: translateY(10px); }
-        }
-      `}</style>
     </section>
   )
 }

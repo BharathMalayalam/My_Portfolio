@@ -8,17 +8,12 @@ import {
   MapPin, Coffee, Lightbulb, Server, Globe,
   ExternalLink, Terminal,
 } from 'lucide-react'
+import { fadeUpWithIndex } from '@/lib/animations'
+import { SITE } from '@/lib/data/site'
 
 export function About() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
-
-  const fadeUp = {
-    hidden:  { opacity: 0, y: 28 },
-    visible: (i = 0) => ({
-      opacity: 1, y: 0,
-      transition: { duration: 0.65, delay: i * 0.12, ease: 'easeOut' },
-    }),
-  }
+  const fadeUp = fadeUpWithIndex()
 
   const stats = [
     { value: '10+',   label: 'Projects\nCompleted',  icon: Rocket  },
@@ -86,7 +81,7 @@ export function About() {
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="text-white font-bold text-xl leading-tight">Bharath Malayalam</h3>
                     <p className="text-white/75 text-sm mt-1 flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5" /> Karur, Tamil Nadu, India
+                      <MapPin className="w-3.5 h-3.5" /> {SITE.location}
                     </p>
                   </div>
                 </div>
@@ -104,7 +99,7 @@ export function About() {
                 <div className="px-6 py-3 bg-card border-t border-border/50">
                   <div className="flex gap-2.5">
                     <a
-                      href="https://leetcode.com/u/bharathmalayalam/"
+                      href={SITE.leetcode}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-50 border border-amber-200/70 hover:bg-amber-500 hover:border-amber-500 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/25 hover:-translate-y-0.5"
@@ -114,7 +109,7 @@ export function About() {
                       <ExternalLink className="w-3 h-3 text-amber-400 group-hover:text-white/70 transition-colors" />
                     </a>
                     <a
-                      href="https://github.com/BharathMalayalam"
+                      href={SITE.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gray-50 border border-gray-200/70 hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-gray-800/25 hover:-translate-y-0.5"

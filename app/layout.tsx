@@ -11,8 +11,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Bharath Malayalam - Software Developer & DevOps Engineer',
-  description: 'Professional portfolio showcasing software development, DevOps, and cloud solutions expertise. Building scalable applications and cloud infrastructure.',
-  generator: 'v0.app',
+  description:
+    'Professional portfolio showcasing software development, DevOps, and cloud solutions expertise. Building scalable applications and cloud infrastructure.',
   openGraph: {
     title: 'Bharath Malayalam - Software Developer & DevOps Engineer',
     description: 'Building scalable applications and cloud solutions',

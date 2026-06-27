@@ -1,0 +1,84 @@
+import { Briefcase, GraduationCap, Laptop } from 'lucide-react'
+import type { ExperienceItem } from '@/lib/types/portfolio'
+
+export const EXPERIENCES: ExperienceItem[] = [
+  {
+    id: 1,
+    title: 'Cloud Computing Intern',
+    company: 'Cybernaut EdTech Pvt. Ltd.',
+    location: 'Karur, Tamil Nadu',
+    period: 'April – May 2026',
+    type: 'Internship',
+    typeColor: 'from-amber-400 to-orange-500',
+    description:
+      'Learned cloud fundamentals including virtual machines, storage, networking, and security. Worked hands-on with core AWS services and assisted in deploying real-world web applications on cloud infrastructure.',
+    highlights: [
+      'AWS EC2 & S3',
+      'IAM',
+      'Docker',
+      'Linux',
+      'Jenkins',
+      'GitHub Actions',
+      'Networking & DNS',
+      'Cloud Architecture',
+    ],
+    icon: Briefcase,
+    gradient: 'from-amber-500 via-orange-500 to-red-500',
+    glowColor: 'rgba(245,158,11,0.4)',
+    accentBg: 'from-amber-500/15 to-orange-500/5',
+    achievements: [
+      'Deployed 3 web apps on EC2 instances',
+      'Configured S3 buckets with lifecycle policies',
+      'Set up IAM roles & permission policies',
+    ],
+  },
+  {
+    id: 2,
+    title: 'Full Stack Developer',
+    company: 'Personal Projects & Learning',
+    location: 'Remote / Self-Driven',
+    period: '2026 – Present',
+    type: 'Self-Driven',
+    typeColor: 'from-orange-500 to-rose-500',
+    description:
+      'Continuously building and deploying full-stack applications using the MERN stack and modern tooling. Focused on creating production-ready projects with clean UI and scalable backends.',
+    highlights: ['MongoDB', 'React', 'Node.js', 'Express', 'TailwindCSS', 'Framer Motion', 'Next.js'],
+    icon: Laptop,
+    gradient: 'from-orange-500 via-rose-500 to-pink-500',
+    glowColor: 'rgba(251,146,60,0.4)',
+    accentBg: 'from-orange-500/15 to-rose-500/5',
+    achievements: [
+      'Built 20+ full-stack projects end-to-end',
+      'Implemented CI/CD pipelines with GitHub Actions',
+      'Deployed apps on Vercel, Render & AWS',
+    ],
+  },
+  {
+    id: 3,
+    title: 'IT Student',
+    company: 'University',
+    location: 'Tamil Nadu, India',
+    period: '2021 – Present',
+    type: 'Education',
+    typeColor: 'from-yellow-500 to-amber-500',
+    description:
+      'Pursuing B.Sc. in Information Technology with a focus on software development, cloud computing, and data structures. Actively participating in tech events and hackathons.',
+    highlights: [
+      'Data Structures',
+      'Web Development',
+      'Cloud Computing',
+      'Database Management',
+      'OS',
+      'Networking',
+    ],
+    icon: GraduationCap,
+    gradient: 'from-yellow-400 via-amber-500 to-orange-500',
+    glowColor: 'rgba(234,179,8,0.4)',
+    accentBg: 'from-yellow-500/15 to-amber-500/5',
+    achievements: [
+      'Consistent academic performer',
+      'Participated in national-level hackathons',
+      '3+ years of continuous self-learning',
+    ],
+  },
+]

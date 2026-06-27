@@ -4,9 +4,6 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import {
-  Briefcase,
-  GraduationCap,
-  Laptop,
   Calendar,
   ChevronRight,
   Sparkles,
@@ -15,105 +12,19 @@ import {
   Circle,
   ArrowRight,
 } from 'lucide-react'
+import { EXPERIENCES } from '@/lib/data/experience'
+import { staggerContainer, EASE_OUT } from '@/lib/animations'
 
-/* ─── Data ─── */
-interface ExpItem {
-  id: number
-  title: string
-  company: string
-  location: string
-  period: string
-  type: string
-  typeColor: string
-  description: string
-  highlights: string[]
-  icon: React.ElementType
-  gradient: string
-  glowColor: string
-  accentBg: string
-  achievements: string[]
-}
-
-const experiences: ExpItem[] = [
-  {
-    id: 1,
-    title: 'Cloud Computing Intern',
-    company: 'Cybernaut EdTech Pvt. Ltd.',
-    location: 'Karur, Tamil Nadu',
-    period: 'April – May 2026',
-    type: 'Internship',
-    typeColor: 'from-amber-400 to-orange-500',
-    description:
-      'Learned cloud fundamentals including virtual machines, storage, networking, and security. Worked hands-on with core AWS services and assisted in deploying real-world web applications on cloud infrastructure.',
-    highlights: ['AWS EC2 & S3', 'IAM', 'Docker', 'Linux', 'Jenkins', 'GitHub Actions', 'Networking & DNS', 'Cloud Architecture'],
-    icon: Briefcase,
-    gradient: 'from-amber-500 via-orange-500 to-red-500',
-    glowColor: 'rgba(245,158,11,0.4)',
-    accentBg: 'from-amber-500/15 to-orange-500/5',
-    achievements: [
-      'Deployed 3 web apps on EC2 instances',
-      'Configured S3 buckets with lifecycle policies',
-      'Set up IAM roles & permission policies',
-    ],
-  },
-  {
-    id: 2,
-    title: 'Full Stack Developer',
-    company: 'Personal Projects & Learning',
-    location: 'Remote / Self-Driven',
-    period: '2026 – Present',
-    type: 'Self-Driven',
-    typeColor: 'from-orange-500 to-rose-500',
-    description:
-      'Continuously building and deploying full-stack applications using the MERN stack and modern tooling. Focused on creating production-ready projects with clean UI and scalable backends.',
-    highlights: ['MongoDB', 'React', 'Node.js', 'Express', 'TailwindCSS', 'Framer Motion', 'Next.js'],
-    icon: Laptop,
-    gradient: 'from-orange-500 via-rose-500 to-pink-500',
-    glowColor: 'rgba(251,146,60,0.4)',
-    accentBg: 'from-orange-500/15 to-rose-500/5',
-    achievements: [
-      'Built 20+ full-stack projects end-to-end',
-      'Implemented CI/CD pipelines with GitHub Actions',
-      'Deployed apps on Vercel, Render & AWS',
-    ],
-  },
-  {
-    id: 3,
-    title: 'IT Student',
-    company: 'University',
-    location: 'Tamil Nadu, India',
-    period: '2021 – Present',
-    type: 'Education',
-    typeColor: 'from-yellow-500 to-amber-500',
-    description:
-      'Pursuing B.Sc. in Information Technology with a focus on software development, cloud computing, and data structures. Actively participating in tech events and hackathons.',
-    highlights: ['Data Structures', 'Web Development', 'Cloud Computing', 'Database Management', 'OS', 'Networking'],
-    icon: GraduationCap,
-    gradient: 'from-yellow-400 via-amber-500 to-orange-500',
-    glowColor: 'rgba(234,179,8,0.4)',
-    accentBg: 'from-yellow-500/15 to-amber-500/5',
-    achievements: [
-      'Consistent academic performer',
-      'Participated in national-level hackathons',
-      '3+ years of continuous self-learning',
-    ],
-  },
-]
-
-/* ─── Main Component ─── */
 export function Experience() {
   const { ref, inView } = useInView({ threshold: 0.08, triggerOnce: true })
   const [activeId, setActiveId] = useState(1)
 
-  const active = experiences.find((e) => e.id === activeId)!
+  const active = EXPERIENCES.find((e) => e.id === activeId)!
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
-  }
+  const containerVariants = staggerContainer
   const fadeUp = {
     hidden: { opacity: 0, y: 32 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE_OUT } },
   }
 
   return (
@@ -176,7 +87,7 @@ export function Experience() {
 
             {/* ── LEFT: Role Selector ── */}
             <motion.div variants={fadeUp} className="flex flex-col gap-3">
-              {experiences.map((exp, i) => {
+              {EXPERIENCES.map((exp, i) => {
                 const Icon = exp.icon
                 const isActive = exp.id === activeId
                 return (
@@ -241,14 +152,14 @@ export function Experience() {
 
               {/* Timeline connector visual */}
               <div className="relative mt-2 ml-11 flex flex-col gap-0">
-                {experiences.map((exp, i) => (
+                {EXPERIENCES.map((exp, i) => (
                   <div key={exp.id} className="flex items-center gap-3">
                     <div className={`w-2.5 h-2.5 rounded-full border-2 transition-all duration-300 ${
                       exp.id === activeId
                         ? `bg-gradient-to-br ${exp.gradient} border-transparent shadow-md`
                         : 'border-border bg-white'
                     }`} />
-                    {i < experiences.length - 1 && (
+                    {i < EXPERIENCES.length - 1 && (
                       <div className="absolute left-[42px] mt-6 w-0.5 h-6 bg-gradient-to-b from-amber-300/60 to-transparent" />
                     )}
                   </div>
@@ -388,7 +299,7 @@ export function Experience() {
             variants={fadeUp}
             className="flex items-center justify-center gap-4 mt-10"
           >
-            {experiences.map((exp) => (
+            {EXPERIENCES.map((exp) => (
               <button
                 key={exp.id}
                 onClick={() => setActiveId(exp.id)}
