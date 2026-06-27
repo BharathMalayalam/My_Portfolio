@@ -30,7 +30,7 @@ export const SKILL_LOGO_URL: Record<string, string> = {
 }
 
 export const SKILL_STATS = [
-  { value: 80, suffix: '+', label: 'Projects', icon: '🚀' },
+  { value: 20, suffix: '+', label: 'Projects & Assignments', icon: '🚀' },
   { value: 26, suffix: '+', label: 'Technologies', icon: '⚡' },
   { value: 3, suffix: '+', label: 'Years Learning', icon: '📅' },
 ] as const

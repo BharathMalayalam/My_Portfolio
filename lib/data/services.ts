@@ -23,7 +23,7 @@ export const SERVICES: Service[] = [
     subtitle: 'Modern • Responsive • Fast',
     description:
       'Crafting pixel-perfect, high-performance web apps using the latest frameworks. Every pixel is intentional, every interaction delightful.',
-    features: ['React & Next.js', 'Tailwind CSS', 'TypeScript', 'SEO Optimised', 'Responsive Design'],
+    features: ['React & Next.js', 'CSS', 'TypeScript', 'JavaScript', 'Responsive Design'],
     gradient: 'from-orange-500 via-primary to-amber-400',
     glow: 'from-primary/30 to-accent/20',
     textGlow: 'from-primary to-accent',
@@ -37,7 +37,7 @@ export const SERVICES: Service[] = [
     subtitle: 'Scalable • Secure • Robust',
     description:
       'Building bulletproof server-side systems with clean architecture, real-time capabilities, and optimised queries.',
-    features: ['Node.js & Express', 'Python (FastAPI)', 'PostgreSQL & MongoDB', 'Socket.io'],
+    features: ['Node.js & Express', 'MongoDB', 'REST APIs'],
     gradient: 'from-violet-500 to-purple-400',
     glow: 'from-violet-400/25 to-purple-500/15',
     textGlow: 'from-violet-500 to-purple-400',

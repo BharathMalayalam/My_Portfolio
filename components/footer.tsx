@@ -1,12 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Heart, Link2, Mail } from 'lucide-react'
+import { Code2, Heart, Mail } from 'lucide-react'
+import { LinkedInIcon } from '@/components/icons/linkedin-icon'
 import { FOOTER_NAV_ITEMS, SITE } from '@/lib/data/site'
 
 const FOOTER_SOCIAL = [
   { icon: Code2, href: SITE.github, label: 'GitHub' },
-  { icon: Link2, href: SITE.linkedin, label: 'LinkedIn' },
+  { icon: LinkedInIcon, href: SITE.linkedin, label: 'LinkedIn', isBrand: true },
   { icon: Mail, href: `mailto:${SITE.email}`, label: 'Email' },
 ] as const
 
@@ -72,7 +73,7 @@ export function Footer() {
                     className="w-10 h-10 rounded-xl bg-primary/10 hover:bg-gradient-to-br hover:from-primary hover:to-accent flex items-center justify-center text-primary hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/30 border border-primary/15 hover:border-transparent"
                     aria-label={link.label}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className={'isBrand' in link && link.isBrand ? 'w-4 h-4 fill-current' : 'w-4 h-4'} />
                   </a>
                 )
               })}

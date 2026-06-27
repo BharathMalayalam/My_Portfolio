@@ -44,7 +44,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     description:
       'Participated in a global startup event, explored startup ideas, and gained knowledge from people across the world.',
     image: '/a3.jpeg',
-    year: '2026',
+    year: '2025',
     icon: Trophy,
   },
 ]

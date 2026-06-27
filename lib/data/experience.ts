@@ -37,7 +37,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     title: 'Full Stack Developer',
     company: 'Personal Projects & Learning',
     location: 'Remote / Self-Driven',
-    period: '2026 – Present',
+    period: '2025 – Present',
     type: 'Self-Driven',
     typeColor: 'from-orange-500 to-rose-500',
     description:
@@ -55,14 +55,14 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
   {
     id: 3,
-    title: 'IT Student',
-    company: 'University',
-    location: 'Tamil Nadu, India',
-    period: '2021 – Present',
+    title: 'B.Tech (IT)',
+    company: 'Government College of Engineering ,Erode',
+    location: 'Erode, Tamil Nadu, India',
+    period: '2024-2028',
     type: 'Education',
     typeColor: 'from-yellow-500 to-amber-500',
     description:
-      'Pursuing B.Sc. in Information Technology with a focus on software development, cloud computing, and data structures. Actively participating in tech events and hackathons.',
+      'Pursuing a Bachelor’s degree in Information Technology with a strong foundation in software development, cloud computing, and web technologies. Skilled in Data Structures and Algorithms (DSA) and Object-Oriented Programming (OOP), with hands-on experience in building projects using the MERN stack and AWS services. Passionate about developing scalable and efficient software solutions.',
     highlights: [
       'Data Structures',
       'Web Development',
@@ -70,6 +70,8 @@ export const EXPERIENCES: ExperienceItem[] = [
       'Database Management',
       'OS',
       'Networking',
+      'OOP',
+      'DSA',
     ],
     icon: GraduationCap,
     gradient: 'from-yellow-400 via-amber-500 to-orange-500',

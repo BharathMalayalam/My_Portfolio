@@ -1,4 +1,5 @@
-import { Code2, Link2, Mail, Phone } from 'lucide-react'
+import { Code2, Mail, Phone } from 'lucide-react'
+import { LinkedInIcon } from '@/components/icons/linkedin-icon'
 import type { NavItem, SocialLink } from '@/lib/types/portfolio'
 
 export const SITE = {
@@ -48,13 +49,14 @@ export const SOCIAL_LINKS: SocialLink[] = [
     bg: 'bg-gray-500/10 hover:bg-gray-500/20',
   },
   {
-    icon: Link2,
+    icon: LinkedInIcon,
     label: 'LinkedIn',
     value: 'bharath-malayalam',
     sub: 'Connect professionally',
     href: SITE.linkedin,
     gradient: 'from-blue-600 to-blue-700',
     bg: 'bg-blue-500/10 hover:bg-blue-500/20',
+    isBrand: true,
   },
   {
     icon: Phone,

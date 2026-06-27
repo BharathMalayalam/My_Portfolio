@@ -18,7 +18,7 @@ export function About() {
   const stats = [
     { value: '10+',   label: 'Projects\nCompleted',  icon: Rocket  },
     { value: '3+',   label: 'Years of\nLearning',   icon: GraduationCap },
-    { value: '15+',  label: 'Technologies\nUsed',   icon: Code2   },
+    { value: '26+',  label: 'Technologies\nUsed',   icon: Code2   },
     { value: '100%', label: 'Passion &\nDedication', icon: Heart  },
   ]
 
@@ -73,6 +73,7 @@ export function About() {
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     priority
+                    sizes="(max-width: 1024px) 100vw, 40vw"
                   />
                   {/* Gradient overlay at bottom */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
@@ -145,7 +146,7 @@ export function About() {
                 <p className="text-base sm:text-lg">
                   My journey started with curiosity about what happens <em>behind the scenes</em>. That led
                   me to explore cloud computing, containerization, and CI/CD pipelines — especially
-                  <span className="text-primary font-medium"> AWS, Docker,</span> and modern dev workflows.
+                  <span className="text-primary font-medium"> AWS, Docker, Linux, Git & GitHub</span> and modern dev workflows.
                 </p>
                 <p className="text-base sm:text-lg">
                   Whether architecting microservices, optimising databases, or setting up automated

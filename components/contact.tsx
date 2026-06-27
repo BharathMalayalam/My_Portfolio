@@ -191,7 +191,7 @@ export function Contact() {
                       <div
                         className={`w-10 h-10 rounded-xl bg-gradient-to-br ${link.gradient} flex items-center justify-center mb-3 shadow-sm`}
                       >
-                        <Icon className="w-4 h-4 text-white" />
+                        <Icon className={`w-4 h-4 text-white ${link.isBrand ? 'fill-white' : ''}`} />
                       </div>
                       <p className="text-xs font-bold text-foreground">{link.label}</p>
                       <p className="text-xs text-muted-foreground truncate">{link.value}</p>
@@ -246,7 +246,7 @@ export function Contact() {
                           required
                           autoComplete="name"
                           maxLength={CONTACT_LIMITS.name.max}
-                          placeholder="John Doe"
+                          placeholder="Name"
                           className={inputClass('name')}
                         />
                       </FormField>
@@ -268,7 +268,7 @@ export function Contact() {
                           required
                           autoComplete="email"
                           maxLength={CONTACT_LIMITS.email.max}
-                          placeholder="john@example.com"
+                          placeholder="e-mail"
                           className={inputClass('email')}
                         />
                       </FormField>

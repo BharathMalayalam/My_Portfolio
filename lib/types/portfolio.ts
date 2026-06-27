@@ -9,13 +9,14 @@ export interface NavItem {
 }
 
 export interface SocialLink {
-  icon: LucideIcon
+  icon: LucideIcon | ElementType
   label: string
   value: string
   sub?: string
   href: string
   gradient: string
   bg?: string
+  isBrand?: boolean
 }
 
 export interface Project {
