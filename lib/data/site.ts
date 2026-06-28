@@ -11,7 +11,7 @@ export const SITE = {
   resumePath: '/Bharath_Malayalam_Resume.pdf',
   github: 'https://github.com/BharathMalayalam',
   linkedin: 'https://www.linkedin.com/in/bharath-malayalam',
-  leetcode: 'https://leetcode.com/u/bharathmalayalam/',
+  leetcode: 'https://leetcode.com/u/F0fCjsIq3u/',
   whatsapp: 'https://wa.me/6379616027',
 } as const
 
