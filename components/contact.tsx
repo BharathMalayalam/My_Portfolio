@@ -2,17 +2,23 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Send, MapPin,
   MessageSquare,
   Sparkles,
   CheckCircle2,
   ArrowUpRight,
 } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 import { staggerContainer, EASE_OUT } from '@/lib/animations'
 import { SITE, SOCIAL_LINKS } from '@/lib/data/site'
 import { CONTACT_LIMITS, validateContactForm } from '@/lib/validation/contact'
 import type { ContactFormData, ContactFormField } from '@/lib/types/portfolio'
+
+// Initialize EmailJS
+if (typeof window !== 'undefined') {
+  emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '')
+}
 
 const INITIAL_FORM: ContactFormData = {
   name: '',
@@ -71,18 +77,17 @@ export function Contact() {
     setErrors({})
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(validation.sanitized),
-      })
-
-      const payload = (await response.json()) as { error?: string; errors?: typeof errors }
-
-      if (!response.ok) {
-        if (payload.errors) setErrors(payload.errors)
-        throw new Error(payload.error ?? 'Failed to send message.')
-      }
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+        {
+          from_name: validation.sanitized.name,
+          from_email: validation.sanitized.email,
+          subject: validation.sanitized.subject,
+          message: validation.sanitized.message,
+          to_email: 'bharathmalayalam25@gmail.com',
+        },
+      )
 
       setFormData(INITIAL_FORM)
       setStatus('success')
