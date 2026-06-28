@@ -68,7 +68,7 @@ export function Contact() {
     setSubmitError(null)
 
     const validation = validateContactForm(formData)
-    if (!validation.success) {
+    if (!validation.success || !validation.sanitized) {
       setErrors(validation.errors)
       return
     }
