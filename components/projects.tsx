@@ -303,20 +303,6 @@ function ProjectCard({
               </span>
             ))}
           </div>
-
-          <div className="mt-auto flex items-center justify-between pt-4 border-t border-border/50">
-            <StatusBadge status={project.status} className="text-[10px] px-2.5 py-1" />
-            {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r ${project.gradient} text-white text-xs font-bold shadow hover:shadow-md hover:scale-105 transition-all duration-250`}
-              >
-                <ExternalLink className="w-3 h-3" /> View
-              </a>
-            )}
-          </div>
         </div>
 
         <div
