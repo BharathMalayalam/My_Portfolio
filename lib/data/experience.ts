@@ -55,7 +55,7 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
   {
     id: 3,
-    title: 'B.Tech (IT)',
+    title: 'B.Tech (Information Technology)',
     company: 'Government College of Engineering ,Erode',
     location: 'Erode, Tamil Nadu, India',
     period: '2024-2028',

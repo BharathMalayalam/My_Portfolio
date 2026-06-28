@@ -1,9 +1,17 @@
 import { NextResponse } from 'next/server'
+import emailjs from '@emailjs/nodejs'
 import { validateContactForm } from '@/lib/validation/contact'
 import type { ContactFormData } from '@/lib/types/portfolio'
 
+emailjs.init({
+  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '',
+  privateKey: process.env.EMAILJS_PRIVATE_KEY || '',
+})
+
 const RATE_LIMIT_WINDOW_MS = 60_000
 const MAX_REQUESTS_PER_WINDOW = 5
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ''
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ''
 
 const requestLog = new Map<string, { count: number; resetAt: number }>()
 
@@ -61,9 +69,26 @@ export async function POST(request: Request) {
       )
     }
 
-    // Extend with Resend, SendGrid, or Web3Forms when ready.
-    if (process.env.NODE_ENV === 'development') {
-      console.info('[contact] New message:', result.sanitized)
+    const { name, email, subject, message } = result.sanitized
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: name,
+        from_email: email,
+        subject: subject,
+        message: message,
+        to_email: 'bharathmalayalam25@gmail.com',
+      })
+
+      if (process.env.NODE_ENV === 'development') {
+        console.info('[contact] Email sent successfully:', { name, email, subject })
+      }
+    } catch (emailError) {
+      console.error('[contact] EmailJS error:', emailError)
+      return NextResponse.json(
+        { error: 'Failed to send email. Please try again later.' },
+        { status: 500 },
+      )
     }
 
     return NextResponse.json({ success: true })
