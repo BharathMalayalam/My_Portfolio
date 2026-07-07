@@ -33,6 +33,36 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 3,
+    title: 'INFOSTREAM',
+    tagline: 'Notification System',
+    description:
+      'Infostream is a centralized notification system that streamlines campus communication by bringing all updates into one platform.It ensures the right information reaches the right people on time with smart categorization and tracking.',
+    image: '/Project 4.png',
+    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB'],
+    category: 'Full stack',
+    github: 'https://github.com/BharathMalayalam/Infostream',
+    demo: 'https://weather-app-rbfk.onrender.com/',
+    featured: false,
+    gradient: 'from-blue-500 to-cyan-400',
+    status: 'Live',
+  },
+  {
+    id: 4,
+    title: 'SkyCast',
+    tagline: 'Weather-App',
+    description:
+      'Built a Weather App using React with a CI/CD pipeline powered by Jenkins and Docker. Automated build, containerization, and deployment using Docker Hub and Render for continuous delivery',
+    image: '/Project 5.png',
+    tech: ['React.js', 'Docker', 'Jenkins', 'Render', 'OpenWeatherMap API'],
+    category: 'Full stack',
+    github: 'https://github.com/BharathMalayalam/Weather_app',
+    demo: 'https://weather-app-rbfk.onrender.com/',
+    featured: false,
+    gradient: 'from-pink-500 to-cyan-400',
+    status: 'Live',
+  },
+  {
+    id: 5,
     title: 'Agri-Product Website',
     tagline: 'E-commerce Website',
     description:
@@ -42,7 +72,7 @@ export const PROJECTS: Project[] = [
     category: 'Full stack',
     github: 'https://github.com/BharathMalayalam/Agri-Product',
     featured: false,
-    gradient: 'from-blue-500 to-cyan-400',
+    gradient: 'from-red-500 to-cyan-400',
     status: 'In Progress',
   },
 ]
