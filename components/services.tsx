@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { CheckCircle2 } from 'lucide-react'
-import { fadeUp } from '@/lib/animations'
+import { slideIn } from '@/lib/animations'
 import { SERVICES, SERVICE_PROCESS_STEPS } from '@/lib/data/services'
 
 export function Services() {
@@ -13,7 +13,7 @@ export function Services() {
     <section id="services" ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          variants={fadeUp(0)}
+          variants={slideIn(0.02, 'down', 24)}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
           className="text-center mb-20"
@@ -36,10 +36,10 @@ export function Services() {
             return (
               <motion.div
                 key={svc.id}
-                variants={fadeUp(0.1 + i * 0.1)}
+                variants={slideIn(0.08 + i * 0.08, i % 2 === 0 ? 'right' : 'left', 54)}
                 initial="hidden"
                 animate={inView ? 'visible' : 'hidden'}
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -8, scale: 1.02, rotateY: i % 2 === 0 ? -3 : 3 }}
                 className={`group relative ${svc.span} ${svc.horizontal ? 'md:col-span-2' : ''}`}
               >
                 <div
@@ -47,7 +47,7 @@ export function Services() {
                 />
 
                 <div
-                  className={`relative h-full bg-card border border-border rounded-3xl shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-400 overflow-hidden flex ${
+                  className={`relative h-full bg-card border border-border rounded-3xl shadow-[0_18px_40px_rgba(15,23,42,0.08)] hover:shadow-2xl hover:border-primary/30 transition-all duration-400 overflow-hidden flex ${
                     svc.horizontal ? 'flex-col md:flex-row gap-0' : 'flex-col'
                   }`}
                 >
@@ -125,7 +125,7 @@ export function Services() {
         </div>
 
         <motion.div
-          variants={fadeUp(0.5)}
+          variants={slideIn(0.3, 'up', 24)}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
           className="relative"
@@ -144,10 +144,10 @@ export function Services() {
             {SERVICE_PROCESS_STEPS.map((step, i) => (
               <motion.div
                 key={step.num}
-                variants={fadeUp(0.55 + i * 0.08)}
+                variants={slideIn(0.35 + i * 0.08, i % 2 === 0 ? 'right' : 'left', 22)}
                 initial="hidden"
                 animate={inView ? 'visible' : 'hidden'}
-                whileHover={{ y: -4 }}
+                whileHover={{ y: -4, scale: 1.03 }}
                 className="relative z-10 group"
               >
                 <div className="flex flex-col items-center text-center">

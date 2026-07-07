@@ -8,12 +8,11 @@ import {
   MapPin, Coffee, Lightbulb, Server, Globe,
   ExternalLink, Terminal,
 } from 'lucide-react'
-import { fadeUpWithIndex } from '@/lib/animations'
+import { slideIn, staggerContainer } from '@/lib/animations'
 import { SITE } from '@/lib/data/site'
 
 export function About() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
-  const fadeUp = fadeUpWithIndex()
 
   const stats = [
     { value: '10+',   label: 'Projects\nCompleted',  icon: Rocket  },
@@ -37,7 +36,7 @@ export function About() {
 
         {/* ── Section Header ── */}
         <motion.div
-          custom={0} variants={fadeUp} initial="hidden"
+          variants={slideIn(0.04, 'down', 24)} initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
           className="text-center mb-20"
         >
@@ -55,7 +54,7 @@ export function About() {
 
           {/* Photo card — 2 cols */}
           <motion.div
-            custom={1} variants={fadeUp} initial="hidden"
+            variants={slideIn(0.30, 'right', 60)} initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
             className="lg:col-span-2"
           >
@@ -64,7 +63,10 @@ export function About() {
               <div className="absolute -inset-3 bg-gradient-to-br from-primary/25 to-accent/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Card */}
-              <div className="relative rounded-3xl overflow-hidden border-2 border-primary/15 shadow-xl bg-card">
+              <motion.div
+                whileHover={{ y: -8, scale: 1.02, rotateY: -3 }}
+                className="relative rounded-3xl overflow-hidden border-2 border-primary/15 shadow-[0_20px_45px_rgba(15,23,42,0.12)] bg-card"
+              >
                 {/* Photo */}
                 <div className="relative h-80 sm:h-96 lg:h-[420px]">
                   <Image
@@ -121,7 +123,7 @@ export function About() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -130,9 +132,10 @@ export function About() {
 
             {/* Bio card */}
             <motion.div
-              custom={2} variants={fadeUp} initial="hidden"
+              variants={slideIn(0.12, 'left', 56)} initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
-              className="relative bg-card rounded-2xl p-8 border border-border shadow-sm overflow-hidden"
+              whileHover={{ y: -6, scale: 1.01, rotateY: 3 }}
+              className="relative bg-card rounded-2xl p-8 border border-border shadow-[0_18px_40px_rgba(15,23,42,0.1)] overflow-hidden"
             >
               {/* Decorative blob */}
               <div className="absolute -top-10 -right-10 w-36 h-36 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-2xl" />
@@ -157,7 +160,7 @@ export function About() {
 
             {/* Stats grid */}
             <motion.div
-              custom={3} variants={fadeUp} initial="hidden"
+              variants={staggerContainer} initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
               className="grid grid-cols-2 sm:grid-cols-4 gap-4"
             >
@@ -166,7 +169,8 @@ export function About() {
                 return (
                   <motion.div
                     key={s.label}
-                    whileHover={{ y: -6, scale: 1.04 }}
+                    variants={slideIn(0.14 + i * 0.06, i % 2 === 0 ? 'left' : 'right', 24)}
+                    whileHover={{ y: -6, scale: 1.04, rotateY: i % 2 === 0 ? -3 : 3 }}
                     className="group relative"
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-accent/10 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-400 -z-10" />
@@ -190,7 +194,7 @@ export function About() {
 
         {/* ── Interests / Passions Grid ── */}
         <motion.div
-          custom={4} variants={fadeUp} initial="hidden"
+          variants={slideIn(0.16, 'up', 24)} initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
           {/* Sub-header */}
@@ -208,17 +212,16 @@ export function About() {
               return (
                 <motion.div
                   key={item.title}
-                  custom={5 + i * 0.5}
-                  variants={fadeUp}
+                  variants={slideIn(0.18 + i * 0.06, i % 2 === 0 ? 'right' : 'left', 30)}
                   initial="hidden"
                   animate={inView ? 'visible' : 'hidden'}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -5, scale: 1.01, rotateY: i % 2 === 0 ? 3 : -3 }}
                   className="group relative"
                 >
                   {/* Hover glow */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
 
-                  <div className="relative flex items-start gap-4 bg-card rounded-2xl p-6 border border-border hover:border-primary/30 shadow-sm hover:shadow-lg transition-all duration-350 overflow-hidden">
+                  <div className="relative flex items-start gap-4 bg-card rounded-2xl p-6 border border-border hover:border-primary/30 shadow-[0_16px_35px_rgba(15,23,42,0.08)] hover:shadow-lg transition-all duration-350 overflow-hidden">
                     {/* Corner gradient blob */}
                     <div className={`absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br ${item.color} opacity-5 rounded-full blur-xl group-hover:opacity-10 transition-opacity duration-500`} />
 

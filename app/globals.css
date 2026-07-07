@@ -50,6 +50,9 @@
 
 :root {
   color-scheme: light;
+  --font-body: 'DynaPuff', 'Comic Sans MS', cursive;
+  --font-heading: 'Montenegrin Gothic One', 'Trebuchet MS', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
   --background: #fdf6ec;
   --foreground: #1f2937;
   --card: #ffffff;
@@ -163,11 +166,24 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    letter-spacing: 0.03em;
   }
 
   html {
     @apply font-sans;
+    font-family: var(--font-body);
     scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.04em;
   }
 }
 
