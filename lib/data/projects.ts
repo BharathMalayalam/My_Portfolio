@@ -40,7 +40,8 @@ export const PROJECTS: Project[] = [
     image: '/Project 4.png',
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB'],
     category: 'Full stack',
-    github:'https://infostream-xi.vercel.app/',
+    github:'https://github.com/BharathMalayalam/Infostream.git',
+    demo: 'https://infostream-xi.vercel.app/',
     featured: false,
     gradient: 'from-blue-500 to-cyan-400',
     status: 'Live',
@@ -50,7 +51,7 @@ export const PROJECTS: Project[] = [
     title: 'SkyCast',
     tagline: 'Weather-App',
     description:
-      'Built a Weather App using React with a CI/CD pipeline powered by Jenkins and Docker. Containerization and deployment using Docker Hub and Render for continuous delivery'.
+      'Built a Weather App using React with a CI/CD pipeline powered by Jenkins and Docker. Containerization and deployment using Docker Hub and Render for continuous delivery',
     image: '/Project 5.png',
     tech: ['React.js', 'Docker', 'Jenkins', 'Render', 'OpenWeatherMap API'],
     category: 'Full stack',
