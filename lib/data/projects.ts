@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
     title: 'INFOSTREAM',
     tagline: 'Notification System',
     description:
-      'Infostream is a centralized notification system that streamlines campus communication by bringing all updates into one platform.It ensures the right information reaches the right people on time with smart categorization and tracking.',
+      'Infostream is a centralized notification system that streamlines campus communication by bringing all updates into one platform.',
     image: '/Project 4.png',
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB'],
     category: 'Full stack',
@@ -50,7 +50,7 @@ export const PROJECTS: Project[] = [
     title: 'SkyCast',
     tagline: 'Weather-App',
     description:
-      'Built a Weather App using React with a CI/CD pipeline powered by Jenkins and Docker. Automated build, containerization, and deployment using Docker Hub and Render for continuous delivery',
+      'Built a Weather App using React with a CI/CD pipeline powered by Jenkins and Docker. Containerization and deployment using Docker Hub and Render for continuous delivery'.
     image: '/Project 5.png',
     tech: ['React.js', 'Docker', 'Jenkins', 'Render', 'OpenWeatherMap API'],
     category: 'Full stack',
