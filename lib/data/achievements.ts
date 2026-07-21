@@ -47,6 +47,15 @@ export const ACHIEVEMENTS: Achievement[] = [
     year: '2025',
     icon: Trophy,
   },
+  {
+    id: 'Git & GitHub',
+    title: 'Junior Session',
+    description:
+      'I had the opportunity to conduct a session on Git & GitHub for my juniors',
+    image: '/a6.jpg',
+    year: '2026',
+    icon: Trophy,
+  },
 ]
 
-export const ACHIEVEMENT_SLIDE_DURATION_MS = 6000
+export const ACHIEVEMENT_SLIDE_DURATION_MS = 4000
