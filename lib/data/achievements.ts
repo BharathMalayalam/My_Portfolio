@@ -56,6 +56,14 @@ export const ACHIEVEMENTS: Achievement[] = [
     year: '2026',
     icon: Trophy,
   },
+  {
+    id: 'Basics of DevOps' ,
+    title: 'Devops Session',
+    description:'I had opportunity to conduct a session on Introduction of DevOps for my Friends',
+    image: '/a7.jpg',
+    year:'2026',
+    icon: Trophy
+  },
 ]
 
 export const ACHIEVEMENT_SLIDE_DURATION_MS = 4000
