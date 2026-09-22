@@ -68,7 +68,7 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 'Startup' ,
     title: 'Pitch of My StartUp',
     description:'I had opportunity to conduct a session on Introduction of DevOps for my Friends',
-    image: '/a7.jpg',
+    image: '/a8.jpg',
     year:'2026',
     icon: Trophy
   },
