@@ -3,7 +3,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
-import { ExternalLink, Code2, Layers } from 'lucide-react'
+import { ExternalLink, Layers } from 'lucide-react'
+import { GitHubIcon } from '@/components/icons/github-icon'
 import { fadeUp } from '@/lib/animations'
 import { PROJECTS, getFeaturedProject, getOtherProjects } from '@/lib/data/projects'
 import { SITE } from '@/lib/data/site'
@@ -114,7 +115,7 @@ export function Projects() {
               rel="noopener noreferrer"
               className="flex-shrink-0 inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300"
             >
-              <Code2 className="w-5 h-5" />
+              <GitHubIcon className="w-5 h-5" />
               View GitHub Profile
             </a>
           </div>
@@ -252,7 +253,7 @@ function ProjectCard({
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold transition-all"
             >
-              <Code2 className="w-3.5 h-3.5" /> Code
+              <GitHubIcon className="w-3.5 h-3.5" /> Code
             </a>
             {project.demo && (
               <a
@@ -334,7 +335,7 @@ function ProjectActions({ project, size }: { project: Project; size: 'lg' | 'sm'
             isLarge ? 'px-5 py-2.5 text-sm' : 'px-3 py-1.5 text-xs'
           }`}
         >
-          <Code2 className="w-4 h-4" /> Code
+          <GitHubIcon className="w-4 h-4" /> Code
         </a>
         {project.demo && (
           <a

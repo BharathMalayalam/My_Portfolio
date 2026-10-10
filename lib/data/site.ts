@@ -1,5 +1,6 @@
-import { Code2, Mail, Phone } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import { LinkedInIcon } from '@/components/icons/linkedin-icon'
+import { GitHubIcon } from '@/components/icons/github-icon'
 import type { NavItem, SocialLink } from '@/lib/types/portfolio'
 
 export const SITE = {
@@ -40,13 +41,14 @@ export const SOCIAL_LINKS: SocialLink[] = [
     bg: 'bg-amber-500/10 hover:bg-amber-500/20',
   },
   {
-    icon: Code2,
+    icon: GitHubIcon,
     label: 'GitHub',
     value: 'BharathMalayalam',
     sub: 'Check my open source work',
     href: SITE.github,
     gradient: 'from-gray-600 to-gray-800',
     bg: 'bg-gray-500/10 hover:bg-gray-500/20',
+    isBrand: true,
   },
   {
     icon: LinkedInIcon,

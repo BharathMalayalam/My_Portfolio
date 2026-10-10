@@ -1,12 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Heart, Mail } from 'lucide-react'
+import { Heart, Mail } from 'lucide-react'
 import { LinkedInIcon } from '@/components/icons/linkedin-icon'
+import { GitHubIcon } from '@/components/icons/github-icon'
 import { FOOTER_NAV_ITEMS, SITE } from '@/lib/data/site'
 
 const FOOTER_SOCIAL = [
-  { icon: Code2, href: SITE.github, label: 'GitHub' },
+  { icon: GitHubIcon, href: SITE.github, label: 'GitHub', isBrand: true },
   { icon: LinkedInIcon, href: SITE.linkedin, label: 'LinkedIn', isBrand: true },
   { icon: Mail, href: `mailto:${SITE.email}`, label: 'Email' },
 ] as const

@@ -9,6 +9,7 @@ import {
   ExternalLink, Terminal,
 } from 'lucide-react'
 import { slideIn, staggerContainer } from '@/lib/animations'
+import { GitHubIcon } from '@/components/icons/github-icon'
 import { SITE } from '@/lib/data/site'
 
 export function About() {
@@ -117,7 +118,7 @@ export function About() {
                       rel="noopener noreferrer"
                       className="group flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gray-50 border border-gray-200/70 hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-gray-800/25 hover:-translate-y-0.5"
                     >
-                      <Code2 className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
+                      <GitHubIcon className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
                       <span className="text-xs font-bold text-gray-700 group-hover:text-white transition-colors">GitHub</span>
                       <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-white/70 transition-colors" />
                     </a>
