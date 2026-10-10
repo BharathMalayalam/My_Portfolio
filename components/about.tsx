@@ -17,12 +17,12 @@ export function About() {
   const stats = [
     { value: '10+',   label: 'Projects\nCompleted',  icon: Rocket  },
     { value: '3+',   label: 'Years of\nLearning',   icon: GraduationCap },
-    { value: '26+',  label: 'Technologies\nUsed',   icon: Code2   },
+    { value: '27+',  label: 'Technologies\nUsed',   icon: Code2   },
     { value: '100%', label: 'Passion &\nDedication', icon: Heart  },
   ]
 
   const interests = [
-    { icon: Cloud,       title: 'Cloud & DevOps',      desc: 'Linux, AWS, Docker & CI/CD pipelines', color: 'from-blue-500 to-cyan-400'     },
+    { icon: Cloud,       title: 'Cloud & DevOps',      desc: 'Linux, AWS, Oracle Cloud, Docker & CI/CD pipelines', color: 'from-blue-500 to-cyan-400'     },
     { icon: Code2,       title: 'Full-Stack Dev',       desc: 'React,Node.js,Express.js,MongoDB,SQL',        color: 'from-primary to-accent'        },
     { icon: Server,      title: 'Backend Systems',      desc: 'Databases, scalable APIs',   color: 'from-violet-500 to-purple-400' },
     { icon: Lightbulb,   title: 'Problem Solving',      desc: 'DSA, algorithms & system design thinking',  color: 'from-amber-500 to-orange-400'  },
@@ -50,7 +50,7 @@ export function About() {
         </motion.div>
 
         {/* ── Top Grid: Photo + Bio ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-center">
 
           {/* Photo card — 2 cols */}
           <motion.div
@@ -68,7 +68,7 @@ export function About() {
                 className="relative rounded-3xl overflow-hidden border-2 border-primary/15 shadow-[0_20px_45px_rgba(15,23,42,0.12)] bg-card"
               >
                 {/* Photo */}
-                <div className="relative h-80 sm:h-96 lg:h-[420px]">
+                <div className="relative h-80 sm:h-96 lg:h-[420px] m-3 rounded-2xl overflow-hidden">
                   <Image
                     src="/About_profile.jpg"
                     alt="Bharath Malayalam"
@@ -149,7 +149,7 @@ export function About() {
                 <p className="text-base sm:text-lg">
                   My journey started with curiosity about what happens <em>behind the scenes</em>. That led
                   me to explore cloud computing, containerization, and CI/CD pipelines — especially
-                  <span className="text-primary font-medium"> AWS, Docker, Linux, Git & GitHub</span> and modern dev workflows.
+                  <span className="text-primary font-medium"> Cloud Platforms, Docker, Linux, Jenkins , Git & GitHub</span> and modern dev workflows.
                 </p>
                 <p className="text-base sm:text-lg">
                   Whether architecting microservices, optimising databases, or setting up automated

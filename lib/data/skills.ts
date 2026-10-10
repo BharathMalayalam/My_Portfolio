@@ -14,6 +14,7 @@ export const SKILL_LOGO_URL: Record<string, string> = {
   Docker: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
   Jenkins: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg',
   AWS: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+  'Oracle Cloud': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg',
   Git: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
   GitHub: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
   SQL: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
@@ -31,7 +32,7 @@ export const SKILL_LOGO_URL: Record<string, string> = {
 
 export const SKILL_STATS = [
   { value: 20, suffix: '+', label: 'Projects & Assignments', icon: '🚀' },
-  { value: 26, suffix: '+', label: 'Technologies', icon: '⚡' },
+  { value: 27, suffix: '+', label: 'Technologies', icon: '⚡' },
   { value: 3, suffix: '+', label: 'Years Learning', icon: '📅' },
 ] as const
 
@@ -60,6 +61,7 @@ export const SKILL_TRACKS: SkillTrackItem[][] = [
     { name: 'Jenkins', color: '#8B5CF6' },
     { name: 'GitHub Actions', color: '#8B5CF6' },
     { name: 'AWS', color: '#8B5CF6' },
+    { name: 'Oracle Cloud', color: '#8B5CF6' },
     { name: 'EC2', color: '#8B5CF6' },
     { name: 'S3', color: '#8B5CF6' },
     { name: 'Lambda', color: '#8B5CF6' },

@@ -1,9 +1,10 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Download, Code, Cloud, Zap, Database, Wrench } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import { SITE } from '@/lib/data/site'
 
 const badges = [
@@ -38,6 +39,16 @@ const photoVariants = {
 }
 
 export function Hero() {
+  const roles = ['Software Developer', 'Cloud & DevOps Engineer' , 'Full Stack Developer', 'Open Source Contributor' ,'Agentic AI Enthusiast']
+  const [roleIndex, setRoleIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((i) => (i + 1) % roles.length)
+    }, 2600)
+    return () => clearInterval(interval)
+  }, [roles.length])
+
   return (
     <section className="relative min-h-[100dvh] flex items-center pt-[4.5rem] pb-10 sm:pt-20 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-x-hidden bg-background">
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -171,9 +182,9 @@ export function Hero() {
               className="text-[2.25rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-3 sm:mb-5 text-foreground tracking-tight"
             >
               I&apos;m{' '}
-              <span className="relative inline-block">
+              <span className="relative ">
                 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Bharath
+                  Bharath.M.L
                 </span>
                 <motion.div
                   className="absolute -bottom-0.5 sm:-bottom-1 left-0 right-0 h-0.5 sm:h-1 bg-gradient-to-r from-primary to-accent rounded-full"
@@ -184,23 +195,31 @@ export function Hero() {
                 />
               </span>
               <br />
-              <span className="text-foreground/80">Malayalam</span>
             </motion.h1>
 
-            <motion.p
+            <motion.h6
               variants={itemVariants}
-              className="text-base sm:text-xl md:text-2xl font-semibold mb-3 sm:mb-4 text-foreground/70"
+              className="text-lg sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4 min-h-8 sm:min-h-9 md:min-h-11 pt-[10px]"
             >
-              <span className="block sm:inline">Software Developer</span>
-              <span className="hidden sm:inline text-primary mx-2">|</span>
-              <span className="block sm:inline text-primary sm:text-foreground/70">DevOps Engineer</span>
-            </motion.p>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={roles[roleIndex]}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.45, ease: 'easeOut' }}
+                  className="inline-block text-gray-600"
+                >
+                  {roles[roleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </motion.h6>
 
             <motion.p
               variants={itemVariants}
               className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-10 leading-relaxed max-w-xl"
             >
-              IT student &amp; full-stack developer with hands-on experience in AWS, the MERN stack, and DevOps.
+              IT student &amp; full-stack developer with hands-on experience in AWS, Oracle Cloud, the MERN stack, and DevOps.
               Building scalable apps and cloud infrastructure through real-world projects.
             </motion.p>
 

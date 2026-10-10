@@ -9,7 +9,7 @@ export const SERVICES: Service[] = [
     subtitle: 'Automated • Reliable • Scalable',
     description:
       'End-to-end infrastructure management — from CI/CD pipelines to Docker containers deployment — so your product ships faster.',
-    features: ['AWS (EC2, S3)', 'Docker', 'Jenkins & GitHub Actions', 'Linux', 'Networking'],
+    features: ['AWS (EC2, S3)', 'Oracle Cloud', 'Docker', 'Jenkins & GitHub Actions', 'Linux', 'Networking'],
     gradient: 'from-blue-500 to-cyan-400',
     glow: 'from-blue-400/25 to-cyan-500/15',
     textGlow: 'from-blue-500 to-cyan-400',

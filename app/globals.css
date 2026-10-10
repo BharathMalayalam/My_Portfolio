@@ -194,6 +194,29 @@
   font-weight: 400;
 }
 
+/* Keep navigation text bold */
+nav a,
+nav button,
+nav span {
+  font-weight: 700;
+}
+
+/* Keep skills section text bold */
+#skills,
+#skills * {
+  font-weight: 700;
+}
+
+/* Keep headings bold */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

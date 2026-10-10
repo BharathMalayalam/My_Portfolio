@@ -26,20 +26,26 @@ export function Navbar() {
         transition={{ duration: 0.5 }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <motion.button
-              type="button"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent tracking-wider"
-              onClick={() => scrollToTop()}
-              aria-label="Scroll to top"
-            >
-              <h1 className="font-body font-normal">{SITE.initials}</h1>
-            </motion.button>
+          <div className="flex items-center justify-between h-16 gap-4">
+            {/* Left: profile image */}
+            <div className="flex-1 flex items-center justify-start">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <Link
+                  href="/"
+                  aria-label="Bharath Malayalam - Home"
+                  className="flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-gradient-to-br from-primary to-accent text-white font-bold text-sm tracking-wider ring-2 ring-primary/40 hover:ring-primary transition-all duration-300"
+                >
+                  {SITE.initials}
+                </Link>
+              </motion.div>
+            </div>
 
-            <div className="hidden md:flex items-center gap-1">
+            {/* Center: nav links */}
+            <div className="hidden md:flex items-center justify-center gap-1">
               {NAV_ITEMS.map((item, index) => (
                 <motion.div
                   key={item.href}
@@ -58,29 +64,32 @@ export function Navbar() {
               ))}
             </div>
 
-            <div className="hidden md:block">
-              <motion.button
-                type="button"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="px-6 py-2.5 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                onClick={() => scrollToSection('contact')}
-              >
-                Get in Touch
-              </motion.button>
-            </div>
+            {/* Right: CTA + mobile menu */}
+            <div className="flex-1 flex items-center justify-end gap-2">
+              <div className="hidden md:block">
+                <motion.button
+                  type="button"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="px-6 py-2.5 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                  onClick={() => scrollToSection('contact')}
+                >
+                  Get in Touch
+                </motion.button>
+              </div>
 
-            <div className="flex md:hidden items-center">
-              <button
-                type="button"
-                onClick={() => setIsMobileMenuOpen((open) => !open)}
-                className="p-2 rounded-md border border-border/80 text-foreground hover:bg-primary/10 transition-colors"
-                aria-expanded={isMobileMenuOpen}
-                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              >
-                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
+              <div className="flex md:hidden items-center">
+                <button
+                  type="button"
+                  onClick={() => setIsMobileMenuOpen((open) => !open)}
+                  className="p-2 rounded-md border border-border/80 text-foreground hover:bg-primary/10 transition-colors"
+                  aria-expanded={isMobileMenuOpen}
+                  aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                >
+                  {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                </button>
+              </div>
             </div>
           </div>
         </div>

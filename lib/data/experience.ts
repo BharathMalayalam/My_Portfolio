@@ -11,9 +11,10 @@ export const EXPERIENCES: ExperienceItem[] = [
     type: 'Internship',
     typeColor: 'from-amber-400 to-orange-500',
     description:
-      'Learned cloud fundamentals including virtual machines, storage, networking, and security. Worked hands-on with core AWS services and assisted in deploying real-world web applications on cloud infrastructure.',
+      'Learned cloud fundamentals including virtual machines, storage, networking, and security. Worked hands-on with core AWS and Oracle Cloud services and assisted in deploying real-world web applications on cloud infrastructure.',
     highlights: [
       'AWS EC2 & S3',
+      'Oracle Cloud',
       'IAM',
       'Docker',
       'Linux',
@@ -62,7 +63,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     type: 'Education',
     typeColor: 'from-yellow-500 to-amber-500',
     description:
-      'Pursuing a Bachelor’s degree in Information Technology with a strong foundation in software development, cloud computing, and web technologies. Skilled in Data Structures and Algorithms (DSA) and Object-Oriented Programming (OOP), with hands-on experience in building projects using the MERN stack and AWS services. Passionate about developing scalable and efficient software solutions.',
+      'Pursuing a Bachelor’s degree in Information Technology with a strong foundation in software development, cloud computing, and web technologies. Skilled in Data Structures and Algorithms (DSA) and Object-Oriented Programming (OOP), with hands-on experience in building projects using the MERN stack, AWS, and Oracle Cloud services. Passionate about developing scalable and efficient software solutions.',
     highlights: [
       'Data Structures',
       'Web Development',
