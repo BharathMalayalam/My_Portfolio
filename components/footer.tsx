@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { Heart, Mail } from 'lucide-react'
 import { LinkedInIcon } from '@/components/icons/linkedin-icon'
 import { GitHubIcon } from '@/components/icons/github-icon'
@@ -25,7 +26,7 @@ export function Footer() {
             viewport={{ once: true }}
           >
             <div className="text-3xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-3">
-              {SITE.initials}
+              Bharath M.L
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Building scalable solutions
@@ -44,12 +45,12 @@ export function Footer() {
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
               {FOOTER_NAV_ITEMS.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-muted-foreground text-sm hover:text-primary transition-colors duration-200 font-medium"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -49,26 +49,8 @@ export function Achievements() {
   const Icon = current.icon
 
   return (
-    <section id="achievements" className="relative w-full py-20 lg:py-24 bg-background overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 lg:mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 text-balance">
-            Achievements & Milestones
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6" />
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Key accomplishments in my development journey
-          </p>
-        </motion.div>
-      </div>
-
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="achievements" className="relative w-full pt-8 pb-12 lg:pb-16 bg-background overflow-hidden">
+      <div className="max-w-[1600px] mx-auto px-3 sm:px-4 lg:px-6">
         <div className="relative w-full h-[600px] sm:h-[700px] lg:h-[80vh] min-h-[600px] max-h-[900px] rounded-3xl overflow-hidden shadow-2xl bg-black flex items-center group ring-1 ring-border/50">
           <AnimatePresence initial={false}>
             <motion.div
@@ -99,7 +81,7 @@ export function Achievements() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 h-full flex items-center pt-10">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-full flex items-center pt-6">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={current.id}

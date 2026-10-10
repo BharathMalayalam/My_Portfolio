@@ -137,23 +137,6 @@ export function Contact() {
 
       <div className="max-w-7xl mx-auto relative">
         <motion.div variants={containerVariants} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
-          <motion.div variants={fadeUp} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 text-sm font-semibold mb-6 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4" />
-              Available for Work
-            </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-              Let&apos;s{' '}
-              <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
-                Connect
-              </span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mx-auto mb-6" />
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind or want to collaborate? I&apos;d love to hear from you.
-            </p>
-          </motion.div>
-
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             <motion.div variants={fadeLeft} className="lg:col-span-2 flex flex-col gap-6">
               <div className="glass-panel rounded-2xl p-6 relative overflow-hidden">

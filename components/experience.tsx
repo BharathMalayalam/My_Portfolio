@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import {
@@ -49,39 +50,6 @@ export function Experience() {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          {/* ── Section Header ── */}
-          <motion.div variants={fadeUp} className="text-center mb-16">
-            <motion.div
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full border text-sm font-bold mb-6 backdrop-blur-sm"
-              style={{
-                background: 'rgba(245,158,11,0.08)',
-                borderColor: 'rgba(245,158,11,0.25)',
-                color: '#d97706',
-              }}
-            >
-              <Sparkles className="w-4 h-4" />
-              Professional Journey
-            </motion.div>
-            <h2 className="text-5xl sm:text-6xl font-black text-foreground mb-4 tracking-tight">
-              My{' '}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent">
-                  Experience
-                </span>
-                <motion.span
-                  className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500"
-                  initial={{ scaleX: 0 }}
-                  animate={inView ? { scaleX: 1 } : {}}
-                  transition={{ delay: 0.6, duration: 0.7, ease: 'easeOut' }}
-                  style={{ originX: 0 }}
-                />
-              </span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto mt-6">
-              Click on a role to explore the details of each chapter of my journey
-            </p>
-          </motion.div>
-
           {/* ── Main Interactive Layout ── */}
           <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-8 items-start">
 
@@ -279,14 +247,14 @@ export function Experience() {
                         <Circle className="w-3 h-3 fill-green-500 text-green-500" />
                         <span className="font-medium">Open to new opportunities</span>
                       </div>
-                      <a
-                        href="#contact"
+                      <Link
+                        href="/contact"
                         className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r ${active.gradient} hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300`}
                         style={{ boxShadow: `0 4px 20px ${active.glowColor}` }}
                       >
                         Let's Talk
                         <ArrowRight className="w-4 h-4" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>

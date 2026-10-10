@@ -32,24 +32,8 @@ export function About() {
   ]
 
   return (
-    <section id="about" ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
+    <section id="about" ref={ref} className="py-24 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden pt-[90px]">
       <div className="max-w-7xl mx-auto">
-
-        {/* ── Section Header ── */}
-        <motion.div
-          variants={slideIn(0.04, 'down', 24)} initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          className="text-center mb-20"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/12 text-primary text-sm font-semibold border border-primary/25 mb-4">
-            Who I Am
-          </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground mb-4">
-            About Me
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto" />
-        </motion.div>
-
         {/* ── Top Grid: Photo + Bio ── */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12 items-center">
 

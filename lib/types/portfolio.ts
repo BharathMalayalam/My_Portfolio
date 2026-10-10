@@ -6,6 +6,8 @@ export type ProjectStatus = 'Live' | 'In Progress'
 export interface NavItem {
   label: string
   href: string
+  icon?: LucideIcon | ElementType
+  description?: string
 }
 
 export interface SocialLink {

@@ -49,24 +49,6 @@ export function Projects() {
   return (
     <section id="projects" ref={ref} className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          variants={fadeUp(0)}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          className="text-center mb-10 sm:mb-14"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/12 text-primary text-sm font-semibold border border-primary/25 mb-4 sm:mb-5">
-            My Work
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground mb-4 sm:mb-5">
-            Featured Projects
-          </h2>
-          <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-4 sm:mb-6" />
-          <p className="text-base sm:text-lg text-muted-foreground max-w-xl sm:max-w-2xl mx-auto">
-            A selection of real-world projects spanning full-stack apps, cloud infra, and DevOps pipelines
-          </p>
-        </motion.div>
-
         <AnimatePresence mode="wait">
           <motion.div
             initial={{ opacity: 0, y: 16 }}

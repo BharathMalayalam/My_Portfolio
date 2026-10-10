@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronUp } from 'lucide-react'
 import { useState } from 'react'
-import { NAV_ITEMS, SITE } from '@/lib/data/site'
+import { NAV_ITEMS } from '@/lib/data/site'
 import { scrollToSection, scrollToTop, useThrottledScroll } from '@/hooks/use-throttled-scroll'
 
 export function Navbar() {
@@ -16,30 +16,13 @@ export function Navbar() {
   return (
     <>
       <motion.nav
-        className="fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 mt-3 w-[95%] max-w-5xl rounded-2xl bg-background/80 backdrop-blur-xl border border-border shadow-2xl"
+        className="fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 mt-3 w-auto max-w-[95%] rounded-2xl bg-background/80 backdrop-blur-xl border border-border shadow-2xl"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 gap-4">
-            {/* Left: profile image */}
-            <div className="flex-1 flex items-center justify-start">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                <Link
-                  href="/"
-                  aria-label="Bharath Malayalam - Home"
-                  className="flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-gradient-to-br from-primary to-accent text-white font-bold text-sm tracking-wider ring-2 ring-primary/40 hover:ring-primary transition-all duration-300"
-                >
-                  {SITE.initials}
-                </Link>
-              </motion.div>
-            </div>
-
+        <div className="px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center h-16 gap-4">
             {/* Center: nav links */}
             <div className="hidden md:flex items-center justify-center gap-1">
               {NAV_ITEMS.map((item, index) => (
@@ -61,18 +44,9 @@ export function Navbar() {
             </div>
 
             {/* Right: CTA + mobile menu */}
-            <div className="flex-1 flex items-center justify-end gap-2">
+            <div className="flex items-center justify-center gap-2">
               <div className="hidden md:block">
-                <motion.button
-                  type="button"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="px-6 py-2.5 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                  onClick={() => scrollToSection('contact')}
-                >
-                  Get in Touch
-                </motion.button>
+                
               </div>
 
               <div className="flex md:hidden items-center">

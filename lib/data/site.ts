@@ -1,10 +1,10 @@
-import { Mail, Phone } from 'lucide-react'
+import { Mail, Phone, User, Code2, Briefcase, Trophy } from 'lucide-react'
 import { LinkedInIcon } from '@/components/icons/linkedin-icon'
 import { GitHubIcon } from '@/components/icons/github-icon'
 import type { NavItem, SocialLink } from '@/lib/types/portfolio'
 
 export const SITE = {
-  name: 'Bharath Malayalam',
+  name: 'Bharath M.L',
   initials: 'BM',
   title: 'Software Developer & DevOps Engineer',
   email: 'bharathmalayalam25@gmail.com',
@@ -17,17 +17,16 @@ export const SITE = {
 } as const
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Achievements', href: '#achievements' },
-  { label: 'Contact', href: '#contact' },
+  {label: 'Home', href: '/', icon: User, description: 'Welcome & introduction' },
+  { label: 'About', href: '/about', icon: User, description: 'Bio, skills & background' },
+  { label: 'Projects', href: '/projects', icon: Code2, description: 'Featured applications & tools' },
+  { label: 'Experience', href: '/experience', icon: Briefcase, description: 'Work history & internships' },
+  { label: 'Achievements', href: '/achievements', icon: Trophy, description: 'Certifications & milestones' },
+  { label: 'Contact', href: '/contact', icon: Mail, description: 'Get in touch & collaborate' },
 ]
 
 export const FOOTER_NAV_ITEMS: NavItem[] = [
   ...NAV_ITEMS,
-  { label: 'Experience', href: '#experience' },
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
