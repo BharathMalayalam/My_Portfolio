@@ -9,18 +9,14 @@ import { scrollToSection, scrollToTop, useThrottledScroll } from '@/hooks/use-th
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { isScrolled, showScrollTop, scrollProgress } = useThrottledScroll()
+  const { showScrollTop, scrollProgress } = useThrottledScroll()
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false)
 
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'mt-3 w-[95%] max-w-5xl rounded-2xl bg-background/80 backdrop-blur-xl border border-border shadow-2xl'
-            : 'w-full bg-transparent'
-        }`}
+        className="fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 mt-3 w-[95%] max-w-5xl rounded-2xl bg-background/80 backdrop-blur-xl border border-border shadow-2xl"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
