@@ -160,7 +160,7 @@ export function Skills() {
                 transition={{ type: 'spring', stiffness: 320 }}
                 className="rounded-2xl p-5 sm:p-7 text-center bg-white border border-amber-500/15 shadow-[0_4px_28px_rgba(245,158,11,0.06)]"
               >
-                <div className="text-3xl mb-1">{stat.icon}</div>
+                
                 <div className="text-3xl sm:text-4xl font-black mb-1 bg-gradient-to-br from-amber-500 to-orange-400 bg-clip-text text-transparent">
                   {counters[i]}
                   {stat.suffix}

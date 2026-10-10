@@ -36,7 +36,7 @@ export function Navbar() {
               onClick={() => scrollToTop()}
               aria-label="Scroll to top"
             >
-              <h1>{SITE.initials}</h1>
+              <h1 className="font-body font-normal">{SITE.initials}</h1>
             </motion.button>
 
             <div className="hidden md:flex items-center gap-1">
