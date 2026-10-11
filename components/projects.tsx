@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import { ExternalLink, Layers } from 'lucide-react'
 import { GitHubIcon } from '@/components/icons/github-icon'
+import { RollingTextButton } from '@/components/ui/rolling-text-button'
 import { fadeUp } from '@/lib/animations'
 import { PROJECTS, getFeaturedProject, getOtherProjects } from '@/lib/data/projects'
 import { SITE } from '@/lib/data/site'
@@ -60,7 +61,13 @@ export function Projects() {
             <FeaturedProjectCard project={featured} inView={inView} />
 
             {rest.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-8 sm:space-y-12">
+                <div className="flex items-center gap-3">
+                  <span className="h-px w-8 bg-gradient-to-r from-primary to-accent" />
+                  <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">
+                    More Projects
+                  </span>
+                </div>
                 {rest.map((project, i) => (
                   <ProjectCard key={project.id} project={project} index={i} inView={inView} />
                 ))}
@@ -91,15 +98,20 @@ export function Projects() {
                 All projects live on my GitHub — with full documentation and code.
               </p>
             </div>
-            <a
-              href={`${SITE.github}?tab=repositories`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <RollingTextButton
+              render={
+                <a
+                  href={`${SITE.github}?tab=repositories`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              }
+              nativeButton={false}
+              leading={<GitHubIcon className="w-5 h-5" />}
               className="flex-shrink-0 inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 active:scale-95 transition-all duration-300"
             >
-              <GitHubIcon className="w-5 h-5" />
               View GitHub Profile
-            </a>
+            </RollingTextButton>
           </div>
         </motion.div>
       </div>
@@ -198,6 +210,7 @@ function ProjectCard({
   index: number
   inView: boolean
 }) {
+  const isReversed = index % 2 === 1
   return (
     <motion.div
       variants={fadeUp(0.2 + index * 0.1)}
@@ -210,87 +223,102 @@ function ProjectCard({
         className={`absolute -inset-1 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-15 rounded-3xl blur-xl transition-opacity duration-500 -z-10`}
       />
 
-      <div className="relative h-full bg-card border border-border rounded-3xl overflow-hidden hover:border-primary/30 shadow-sm hover:shadow-xl transition-all duration-400 flex flex-col">
-        <div className="relative h-52 overflow-hidden flex-shrink-0">
+      <div
+        className={`relative flex flex-col lg:flex-row rounded-3xl overflow-hidden border border-border hover:border-primary/30 shadow-sm hover:shadow-2xl transition-all duration-400 bg-card ${
+          isReversed ? 'lg:flex-row-reverse' : ''
+        }`}
+      >
+        <div className="relative h-64 sm:h-80 lg:h-auto lg:flex-1 lg:min-h-[420px] overflow-hidden flex-shrink-0">
           <Image
             src={project.image}
             alt={project.title}
             fill
             className="object-cover group-hover:scale-110 transition-transform duration-700"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+          <div
+            className={`absolute inset-0 ${
+              isReversed
+                ? 'bg-gradient-to-l from-black/70 via-black/10 to-transparent hidden lg:block'
+                : 'bg-gradient-to-r from-black/70 via-black/10 to-transparent hidden lg:block'
+            }`}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent lg:hidden" />
 
-          <div className="absolute top-3 left-3 flex gap-2 z-10">
-            <StatusBadge status={project.status} className="text-[10px] px-2.5 py-1" />
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/10 border border-white/20 text-white backdrop-blur-sm">
+          <div className="absolute top-4 left-4 flex gap-2 z-10">
+            <StatusBadge status={project.status} />
+            <span className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-[10px] font-bold bg-white/10 border border-white/20 text-white backdrop-blur-sm">
               <Layers className="w-2.5 h-2.5" /> {project.category}
             </span>
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
+            <RollingTextButton
+              render={
+                <a href={project.github} target="_blank" rel="noopener noreferrer" />
+              }
+              nativeButton={false}
+              leading={<GitHubIcon className="w-3.5 h-3.5" />}
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 text-white text-xs font-semibold transition-all"
             >
-              <GitHubIcon className="w-3.5 h-3.5" /> Code
-            </a>
+              Code
+            </RollingTextButton>
             {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
+              <RollingTextButton
+                render={
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" />
+                }
+                nativeButton={false}
+                leading={<ExternalLink className="w-3.5 h-3.5" />}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r ${project.gradient} text-white text-xs font-semibold shadow-lg transition-all hover:scale-105`}
               >
-                <ExternalLink className="w-3.5 h-3.5" /> Demo
-              </a>
+                Demo
+              </RollingTextButton>
             )}
           </div>
 
-          <div className="absolute bottom-3 right-4 z-10">
+          <div className="absolute bottom-4 right-5 z-10">
             <span
-              className={`text-3xl font-black bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent opacity-60 select-none`}
+              className={`text-4xl font-black bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent opacity-60 select-none`}
             >
               {String(project.id).padStart(2, '0')}
             </span>
           </div>
         </div>
 
-        <div className="p-6 flex flex-col flex-1 relative overflow-hidden">
+        <div className="relative lg:flex-1 p-8 lg:p-12 flex flex-col justify-center overflow-hidden">
           <div
-            className={`absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br ${project.gradient} opacity-5 rounded-full blur-2xl group-hover:opacity-10 transition-opacity duration-700`}
+            className={`absolute -bottom-16 -right-16 w-56 h-56 bg-gradient-to-br ${project.gradient} opacity-5 rounded-full blur-3xl group-hover:opacity-10 transition-opacity duration-700`}
           />
 
-          <p
-            className={`text-[10px] font-black uppercase tracking-widest bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent mb-2`}
-          >
-            {project.tagline}
-          </p>
+          <div className="relative">
+            <p
+              className={`text-xs font-black uppercase tracking-widest bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent mb-3`}
+            >
+              {project.tagline}
+            </p>
 
-          <h3 className="text-lg font-extrabold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-            {project.title}
-          </h3>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-5 line-clamp-2">
-            {project.description}
-          </p>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+              {project.title}
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-7 text-sm sm:text-base">
+              {project.description}
+            </p>
 
-          <div className="flex flex-wrap gap-1.5 mb-5">
-            {project.tech.map((t) => (
-              <span
-                key={t}
-                className="px-2.5 py-1 text-[11px] font-bold rounded-full bg-primary/8 border border-primary/15 text-primary"
-              >
-                {t}
-              </span>
-            ))}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {project.tech.map((t) => (
+                <span
+                  key={t}
+                  className="px-3 py-1.5 text-xs font-bold rounded-full bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 transition-colors"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div
-          className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${project.gradient} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
-        />
+          <ProjectActions project={project} size="lg" />
+        </div>
       </div>
     </motion.div>
   )
@@ -309,27 +337,31 @@ function ProjectActions({ project, size }: { project: Project; size: 'lg' | 'sm'
       </div>
 
       <div className="flex gap-3">
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
+        <RollingTextButton
+          render={
+            <a href={project.github} target="_blank" rel="noopener noreferrer" />
+          }
+          nativeButton={false}
+          leading={<GitHubIcon className="w-4 h-4" />}
           className={`inline-flex items-center gap-2 rounded-xl bg-foreground/8 border border-border text-foreground font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 ${
             isLarge ? 'px-5 py-2.5 text-sm' : 'px-3 py-1.5 text-xs'
           }`}
         >
-          <GitHubIcon className="w-4 h-4" /> Code
-        </a>
+          Code
+        </RollingTextButton>
         {project.demo && (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
+          <RollingTextButton
+            render={
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" />
+            }
+            nativeButton={false}
+            leading={<ExternalLink className="w-4 h-4" />}
             className={`inline-flex items-center gap-2 rounded-xl bg-gradient-to-r ${project.gradient} text-white font-bold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 ${
               isLarge ? 'px-5 py-2.5 text-sm' : 'px-3 py-1.5 text-xs'
             }`}
           >
-            <ExternalLink className="w-4 h-4" /> Live Demo
-          </a>
+            Live Demo
+          </RollingTextButton>
         )}
       </div>
     </div>

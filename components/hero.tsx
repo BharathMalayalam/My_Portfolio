@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { SITE } from '@/lib/data/site'
+import { RollingTextButton } from '@/components/ui/rolling-text-button'
 
 const badges = [
   { icon: Code, label: 'React & Next.js', sub: 'Modern Frontend', pos: 'top-4 -left-12', delay: 0.8 },
@@ -227,23 +228,26 @@ export function Hero() {
               variants={itemVariants}
               className="flex flex-col w-full sm:flex-row sm:w-auto gap-3 sm:gap-4"
             >
-              <Link href="/projects" className="w-full sm:w-auto">
-                <button
-                  type="button"
-                  className="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/40 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
-                >
-                  View My Work
+              <RollingTextButton
+                render={<Link href="/projects" />}
+                nativeButton={false}
+                staggerCharacters
+                trailing={
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </Link>
-              <a
-                href={SITE.resumePath}
-                download
+                }
+                className="w-full sm:w-auto group px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-primary/40 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
+              >
+                View My Work
+              </RollingTextButton>
+
+              <RollingTextButton
+                render={<a href={SITE.resumePath} download />}
+                nativeButton={false}
+                leading={<Download className="w-4 h-4 sm:w-5 sm:h-5" />}
                 className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 border-2 border-primary/50 text-primary font-bold rounded-xl hover:bg-primary/10 hover:border-primary active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base"
               >
-                <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                 Get Resume
-              </a>
+              </RollingTextButton>
             </motion.div>
 
             <motion.div

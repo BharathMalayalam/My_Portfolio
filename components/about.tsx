@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { slideIn, staggerContainer } from '@/lib/animations'
 import { GitHubIcon } from '@/components/icons/github-icon'
+import { RollingTextButton } from '@/components/ui/rolling-text-button'
 import { SITE } from '@/lib/data/site'
 
 export function About() {
@@ -86,26 +87,44 @@ export function About() {
                 </div>                {/* Coding profile links */}
                 <div className="px-6 py-3 bg-card border-t border-border/50">
                   <div className="flex gap-2.5">
-                    <a
-                      href={SITE.leetcode}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <RollingTextButton
+                      render={
+                        <a
+                          href={SITE.leetcode}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        />
+                      }
+                      nativeButton={false}
+                      leading={
+                        <Terminal className="w-4 h-4 text-amber-600 group-hover:text-white transition-colors" />
+                      }
+                      trailing={
+                        <ExternalLink className="w-3 h-3 text-amber-400 group-hover:text-white/70 transition-colors" />
+                      }
                       className="group flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-50 border border-amber-200/70 hover:bg-amber-500 hover:border-amber-500 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/25 hover:-translate-y-0.5"
                     >
-                      <Terminal className="w-4 h-4 text-amber-600 group-hover:text-white transition-colors" />
-                      <span className="text-xs font-bold text-amber-700 group-hover:text-white transition-colors">LeetCode</span>
-                      <ExternalLink className="w-3 h-3 text-amber-400 group-hover:text-white/70 transition-colors" />
-                    </a>
-                    <a
-                      href={SITE.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      LeetCode
+                    </RollingTextButton>
+                    <RollingTextButton
+                      render={
+                        <a
+                          href={SITE.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        />
+                      }
+                      nativeButton={false}
+                      leading={
+                        <GitHubIcon className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
+                      }
+                      trailing={
+                        <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-white/70 transition-colors" />
+                      }
                       className="group flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gray-50 border border-gray-200/70 hover:bg-gray-800 hover:border-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-gray-800/25 hover:-translate-y-0.5"
                     >
-                      <GitHubIcon className="w-4 h-4 text-gray-600 group-hover:text-white transition-colors" />
-                      <span className="text-xs font-bold text-gray-700 group-hover:text-white transition-colors">GitHub</span>
-                      <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-white/70 transition-colors" />
-                    </a>
+                      GitHub
+                    </RollingTextButton>
                   </div>
                 </div>
               </motion.div>

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronUp } from 'lucide-react'
 import { useState } from 'react'
 import { NAV_ITEMS } from '@/lib/data/site'
+import { RollingTextButton } from '@/components/ui/rolling-text-button'
 import { scrollToSection, scrollToTop, useThrottledScroll } from '@/hooks/use-throttled-scroll'
 
 export function Navbar() {
@@ -32,13 +33,16 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * (index + 1) }}
                 >
-                  <Link
-                    href={item.href}
+                  <RollingTextButton
+                    render={<Link href={item.href} />}
+                    nativeButton={false}
+                    trailing={
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
+                    }
                     className="px-4 py-2 text-sm font-semibold text-foreground/80 hover:text-primary transition-colors duration-200 relative group"
                   >
                     {item.label}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
-                  </Link>
+                  </RollingTextButton>
                 </motion.div>
               ))}
             </div>
@@ -92,14 +96,14 @@ export function Navbar() {
               </div>
 
               {NAV_ITEMS.map((item) => (
-                <Link
+                <RollingTextButton
                   key={item.href}
-                  href={item.href}
-                  onClick={closeMobileMenu}
+                  render={<Link href={item.href} onClick={closeMobileMenu} />}
+                  nativeButton={false}
                   className="py-2 text-lg"
                 >
                   {item.label}
-                </Link>
+                </RollingTextButton>
               ))}
             </motion.nav>
           </>

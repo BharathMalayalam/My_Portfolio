@@ -6,6 +6,7 @@ import { Heart, Mail } from 'lucide-react'
 import { LinkedInIcon } from '@/components/icons/linkedin-icon'
 import { GitHubIcon } from '@/components/icons/github-icon'
 import { FOOTER_NAV_ITEMS, SITE } from '@/lib/data/site'
+import { RollingTextButton } from '@/components/ui/rolling-text-button'
 
 const FOOTER_SOCIAL = [
   { icon: GitHubIcon, href: SITE.github, label: 'GitHub', isBrand: true },
@@ -45,12 +46,13 @@ export function Footer() {
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
               {FOOTER_NAV_ITEMS.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-muted-foreground text-sm hover:text-primary transition-colors duration-200 font-medium"
+                  <RollingTextButton
+                    render={<Link href={link.href} />}
+                    nativeButton={false}
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors duration-200 font-medium justify-start"
                   >
                     {link.label}
-                  </Link>
+                  </RollingTextButton>
                 </li>
               ))}
             </ul>

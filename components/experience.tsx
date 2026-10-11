@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import { EXPERIENCES } from '@/lib/data/experience'
 import { staggerContainer, EASE_OUT } from '@/lib/animations'
+import { RollingTextButton } from '@/components/ui/rolling-text-button'
 
 export function Experience() {
   const { ref, inView } = useInView({ threshold: 0.08, triggerOnce: true })
@@ -247,14 +248,15 @@ export function Experience() {
                         <Circle className="w-3 h-3 fill-green-500 text-green-500" />
                         <span className="font-medium">Open to new opportunities</span>
                       </div>
-                      <Link
-                        href="/contact"
+                      <RollingTextButton
+                        render={<Link href="/contact" />}
+                        nativeButton={false}
+                        trailing={<ArrowRight className="w-4 h-4" />}
                         className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r ${active.gradient} hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300`}
                         style={{ boxShadow: `0 4px 20px ${active.glowColor}` }}
                       >
-                        Let's Talk
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
+                        {"Let's Talk"}
+                      </RollingTextButton>
                     </div>
                   </div>
                 </motion.div>

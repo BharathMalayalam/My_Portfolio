@@ -12,6 +12,7 @@ import { Send, MapPin,
 import emailjs from '@emailjs/browser'
 import { staggerContainer, EASE_OUT } from '@/lib/animations'
 import { SITE, SOCIAL_LINKS } from '@/lib/data/site'
+import { RollingTextButton } from '@/components/ui/rolling-text-button'
 import { CONTACT_LIMITS, validateContactForm } from '@/lib/validation/contact'
 import type { ContactFormData, ContactFormField } from '@/lib/types/portfolio'
 
@@ -335,14 +336,14 @@ export function Contact() {
                       )}
                     </AnimatePresence>
 
-                    <button
+                    <RollingTextButton
                       type="submit"
                       disabled={status === 'loading'}
+                      leading={<Send className="w-4 h-4" />}
                       className="w-full relative overflow-hidden px-6 py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white font-bold rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2.5 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      <Send className="w-4 h-4" />
                       {status === 'loading' ? 'Sending...' : 'Send Message'}
-                    </button>
+                    </RollingTextButton>
 
                     <p className="text-center text-xs text-muted-foreground/60">
                       Your information is private and will never be shared.
