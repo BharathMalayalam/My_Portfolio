@@ -60,7 +60,7 @@ export function About() {
                     alt="Bharath Malayalam"
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
-                    priority
+                    loading="lazy"
                     sizes="(max-width: 1024px) 100vw, 40vw"
                   />
                   {/* Gradient overlay at bottom */}

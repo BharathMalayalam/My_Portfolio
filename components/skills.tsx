@@ -97,17 +97,13 @@ export function Skills() {
             backgroundSize: '38px 38px',
           }}
         />
-        <motion.div
+        <div
           className="absolute -top-60 -left-60 w-[700px] h-[700px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 65%)' }}
-          animate={{ scale: [1, 1.07, 1], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+          style={{ background: 'radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 65%)' }}
         />
-        <motion.div
+        <div
           className="absolute -bottom-60 -right-60 w-[600px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.08) 0%, transparent 65%)' }}
-          animate={{ scale: [1, 1.09, 1], opacity: [0.5, 0.85, 0.5] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
+          style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.06) 0%, transparent 65%)' }}
         />
       </div>
 

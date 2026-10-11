@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
-import { Experience } from '@/components/experience'
+import dynamic from 'next/dynamic'
+import { SectionSkeleton } from '@/components/ui/section-skeleton'
 
 export const metadata: Metadata = {
   title: 'Experience | Bharath Malayalam',
   description: 'Professional experience of Bharath Malayalam.',
 }
+
+const Experience = dynamic(() => import('@/components/experience').then(m => ({ default: m.Experience })), {
+  loading: () => <SectionSkeleton minH="80vh" />,
+})
 
 export default function Page() {
   return (
