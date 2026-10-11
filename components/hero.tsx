@@ -51,7 +51,7 @@ export function Hero() {
   }, [roles.length])
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center pt-20 pb-10 sm:pt-24 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-x-hidden bg-background">
+    <section className="relative min-h-[100dvh] flex items-center pt-28 pb-10 sm:pt-24 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-x-hidden bg-background">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div
           className="absolute inset-y-0 right-0 w-full sm:w-2/3 bg-gradient-to-bl from-primary/10 via-accent/5 to-transparent"
